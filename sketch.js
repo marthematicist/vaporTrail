@@ -28,7 +28,7 @@ var setupGlobalVariables = function() {
   numDots = 50;
   
   minVel = 0.05*minRes;
-  maxVel = 0.2*minRes;
+  maxVel = 0.1*minRes;
   
   avgMass = 50;
 
