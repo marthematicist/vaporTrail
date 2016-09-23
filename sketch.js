@@ -15,9 +15,9 @@ var setupGlobalVariables = function() {
   
   // Threshold distance. Lines will be draw between particles
   // colser than this value
-  distThreshold = 400;
+  distThreshold = 0.4*minRes;
   // Distance at which lines begin to fade
-  fadeThreshold = 300;
+  fadeThreshold = 0.3*minRes;
   // controls how "bright" the image is
   alphaFactor = 0.05;
   
