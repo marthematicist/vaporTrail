@@ -6,20 +6,20 @@ var setupGlobalVariables = function() {
   maxRes = max( xRes , yRes );
   
   // size of the "field" extends past the edges of the canvas.
-  xMin = -0.1*xRes;
-  xMax = 1.1*xRes;
-  yMin = -0.1*yRes;
-  yMax = 1.1*yRes;
+  xMin = -0.2*xRes;
+  xMax = 1.2*xRes;
+  yMin = -0.2*yRes;
+  yMax = 1.2*yRes;
   edgeWidth = xMax * 0.1;
   
   
   // Threshold distance. Lines will be draw between particles
   // colser than this value
-  distThreshold = 0.4*minRes;
+  distThreshold = 400;
   // Distance at which lines begin to fade
-  fadeThreshold = 0.3*minRes;
+  fadeThreshold = 300;
   // controls how "bright" the image is
-  alphaFactor = 0.01;
+  alphaFactor = 0.05;
   
   // R, G, B and alpha values for line color
   lineR = 255;
@@ -34,19 +34,17 @@ var setupGlobalVariables = function() {
   dt = 1.0 / ( 40 );
   
   // constands for physics simulation
-  edgeSpringConstant = 500000;
-  frictionConstant = 0.03;
+  edgeSpringConstant = 50000;
+  frictionConstant = 0.1;
   universalConstant = 25000;
   epsilon = 10;
 
   // number of particles - "dots"
-  numDots = 100;
+  numDots = 50;
   
   // values for randomizing initial particle velocities
-  minVel = 0*minRes;
-  maxVel = 0.01*minRes;
-  // values for randomizing initial particle locaitons
-  minDistance = 0.01*minRes;
+  minVel = 0.05*minRes;
+  maxVel = 0.1*minRes;
   
   // average mass of particles
   avgMass = 50;
@@ -74,16 +72,7 @@ class Dots{
     this.D = new Array(  );
     
     for( var i = 0 ; i < this.N ; i++ ) {
-      var farEnough = false;
-      while( !farEnough ) {
-        this.X[i] = createVector( random(xMin,xMax) , random(yMin , yMax) );
-        farEnough = true;
-        for( var j = 0 ; j < i ; j++ ) {
-          if( p5.Vector.dist( this.X[i] , this.X[j] ) < minDistance ) {
-            farEnough = false;
-          }
-        }
-      }
+      this.X[i] = createVector( random(xMin,xMax) , random(yMin , yMax) );
       this.V[i] = p5.Vector.random2D();
       this.V[i].mult( random(minVel,maxVel) );
       this.A[i] = ( createVector( 0 , 0 ) );
