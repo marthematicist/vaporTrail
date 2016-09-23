@@ -19,7 +19,7 @@ var setupGlobalVariables = function() {
   // Distance at which lines begin to fade
   fadeThreshold = 0.3*minRes;
   // controls how "bright" the image is
-  alphaFactor = 0.05;
+  alphaFactor = 0.01;
   
   // R, G, B and alpha values for line color
   lineR = 255;
