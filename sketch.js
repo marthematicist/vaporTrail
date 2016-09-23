@@ -46,7 +46,7 @@ var setupGlobalVariables = function() {
   minVel = 0*minRes;
   maxVel = 0.01*minRes;
   // values for randomizing initial particle locaitons
-  minDistance = 0.1*minRes;
+  minDistance = 0.01*minRes;
   
   // average mass of particles
   avgMass = 50;
