@@ -35,7 +35,7 @@ var setupGlobalVariables = function() {
   
   // constands for physics simulation
   edgeSpringConstant = 50000;
-  frictionConstant = 0.1;
+  frictionConstant = 0.01;
   universalConstant = 25000;
   epsilon = 10;
 
