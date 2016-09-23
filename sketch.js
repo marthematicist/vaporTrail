@@ -6,10 +6,10 @@ var setupGlobalVariables = function() {
   maxRes = max( xRes , yRes );
   
   // size of the "field" extends past the edges of the canvas.
-  xMin = -0.2*xRes;
-  xMax = 1.2*xRes;
-  yMin = -0.2*yRes;
-  yMax = 1.2*yRes;
+  xMin = -0.1*xRes;
+  xMax = 1.1*xRes;
+  yMin = -0.1*yRes;
+  yMax = 1.1*yRes;
   edgeWidth = xMax * 0.1;
   
   
@@ -40,7 +40,7 @@ var setupGlobalVariables = function() {
   epsilon = 10;
 
   // number of particles - "dots"
-  numDots = 50;
+  numDots = 100;
   
   // values for randomizing initial particle velocities
   minVel = 0*minRes;
