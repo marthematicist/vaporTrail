@@ -45,6 +45,8 @@ var setupGlobalVariables = function() {
   // values for randomizing initial particle velocities
   minVel = 0.05*minRes;
   maxVel = 0.1*minRes;
+  // values for randomizing initial particle locaitons
+  minDistance = 0.1*minRes;
   
   // average mass of particles
   avgMass = 50;
@@ -72,7 +74,16 @@ class Dots{
     this.D = new Array(  );
     
     for( var i = 0 ; i < this.N ; i++ ) {
-      this.X[i] = createVector( random(xMin,xMax) , random(yMin , yMax) );
+      var farEnough = false;
+      while( !farEnough ) {
+        this.X[i] = createVector( random(xMin,xMax) , random(yMin , yMax) );
+        farEnough = true;
+        for( var j = 0 ; j < i ; j++ ) {
+          if( p5.Vector.dist( this.X[i] , this.X[j] ) < minDistance ) {
+            farEnough = false;
+          }
+        }
+      }
       this.V[i] = p5.Vector.random2D();
       this.V[i].mult( random(minVel,maxVel) );
       this.A[i] = ( createVector( 0 , 0 ) );
