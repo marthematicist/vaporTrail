@@ -43,8 +43,8 @@ var setupGlobalVariables = function() {
   numDots = 50;
   
   // values for randomizing initial particle velocities
-  minVel = 0.05*minRes;
-  maxVel = 0.06*minRes;
+  minVel = 0*minRes;
+  maxVel = 0.01*minRes;
   // values for randomizing initial particle locaitons
   minDistance = 0.1*minRes;
   
